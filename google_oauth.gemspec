@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date = %q{2011-05-04}
   s.description = %q{google_oauth is a OAuth2 Ruby client library for the Google Data APIs}
   s.email = %q{moomerman@gmail.com}
-  s.files = ["LICENSE", "README.textile","lib/google_oauth.rb"] + Dir.glob('lib/google_oauth/*.rb')
+  s.files = ["LICENSE", "README.md","lib/google_oauth.rb"] + Dir.glob('lib/google_oauth/*.rb')
   s.has_rdoc = false
   s.homepage = %q{http://github.com/moomerman/google_oauth}
   s.rdoc_options = ["--inline-source", "--charset=UTF-8"]
