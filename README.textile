@@ -1,5 +1,0 @@
-h1. OAuth2 Google Data client library for Ruby
-
-h2. Install the gem
-
-gem install google_oauth

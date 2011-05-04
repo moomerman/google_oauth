@@ -1,3 +1,5 @@
+require 'google_oauth/hash_response'
+require 'google_oauth/array_response'
 require 'google_oauth/contacts'
 require 'google_oauth/calendar'
 
@@ -5,9 +7,9 @@ module GoogleOAuth
   class Client
     
     def initialize(options = {})
-      @application_id = options[:application_id]
-      @application_secret = options[:application_secret]
-      @callback = options[:callback]
+      @application_id = options[:client_id]
+      @application_secret = options[:client_secret]
+      @callback = options[:redirect]
       @token = options[:token]
     end
   
@@ -45,14 +47,24 @@ module GoogleOAuth
         OAuth2::AccessToken.new(consumer, @token)
       end
       
+      def _get_jsonc(url, params={})
+        params.merge! 'alt' => 'jsonc'
+        res = _get(url, params)
+        GoogleOAuth::HashResponse.new(JSON.parse(res)) rescue res
+      end
+      
+      def _get_json(url, params={})
+        params.merge! 'alt' => 'json'
+        res = _get(url, params)
+        JSON.parse(res) rescue res
+      end
+      
       def _get(url, params={})
         oauth_response = access_token.get(url, params)
-        JSON.parse(oauth_response) rescue oauth_response
       end
 
       def _post(url, params={}, headers={})
         oauth_response = access_token.post(url, params, headers)
-        puts oauth_response.inspect
         JSON.parse(oauth_response) rescue oauth_response
       end
 
