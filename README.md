@@ -9,6 +9,8 @@ gem install google_oauth
 Before you begin you will need a <code>client_id</code> and <code>client_secret</code> for your application from Google.  You can create one
 from the [Google API Console](https://code.google.com/apis/console/) - ensure you click on API Access and create an OAuth2 client ID.
 
+With your Client ID credentials you can now initialize the client:
+
     client = GoogleOAuth::Client.new(
       :client_id => 'YOUR_CLIENT_ID', 
       :client_secret => 'YOUR_CLIENT_SECRET', 
@@ -32,7 +34,7 @@ You now have a valid token that you can store for future requests.  You can init
 
 ## Working with Calendars
 
-The Google Calendar API supports the jsonc format so that is what this library uses.  Check out the [Google Documentation](http://code.google.com/apis/calendar/data/2.0/developers_guide_protocol.html) to see what properties are available.
+The Google Calendar API supports the jsonc format.  Check out the [Google Documentation](http://code.google.com/apis/calendar/data/2.0/developers_guide_protocol.html) to see what properties are available.
 
 Here is an example that gets the users first calendar and loops over all the events:
 
