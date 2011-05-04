@@ -1,10 +1,13 @@
 # OAuth2 Google Data client library for Ruby
 
-## h2. Install the gem
+## Install the gem
 
 gem install google_oauth
 
-## h2. Authorization
+## Authorization
+
+Before you begin you will need a <code>client_id</code> and <code>client_secret</code> for your application from Google.  You can create one
+from the [Google API Console](https://code.google.com/apis/console/) - ensure you click on API Access and create an OAuth2 client ID.
 
     client = GoogleOAuth::Client.new(
       :client_id => 'YOUR_CLIENT_ID', 
